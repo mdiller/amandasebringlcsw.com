@@ -1,8 +1,8 @@
 :root {
 	--topbar-color: #333333;
-	--highlight-color: #0270cc;
+	--highlight-color: #7d986d;
 	--text-color: #555555;
-	--background-color: #f8f8f8;
+	--background-color: #FFFDD0;
 	--content-size: 70%;
 	--header-size: 50px;
 	--navbar-height: 50px;
@@ -45,7 +45,7 @@ html, body {
 
 #title h1 {
 	color: var(--highlight-color);
-	font-size: 48px;
+	font-size: 42px;
 	font-weight: 800;
 	margin: 0px;
 }
@@ -119,7 +119,7 @@ h2 {
 #navbar span {
 	color: white;
 	line-height: var(--navbar-height);
-	font-weight: bold;
+	/* font-weight: bold; */
 	margin: 0px 20px;
 	cursor: pointer;
 }
