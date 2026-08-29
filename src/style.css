@@ -3,7 +3,7 @@
 	--highlight-color: #7d986d;
 	--text-color: #555555;
 	--background-color: #fff8e7;
-	--content-size: 70%;
+	--content-size: 800px;
 	--header-size: 50px;
 	--navbar-height: 50px;
 }
@@ -106,7 +106,7 @@ h2 {
 	position: relative;
 	width: 100%;
 	height: var(--navbar-height);
-	margin: 25px 0px;
+	margin-bottom: 25px;
 }
 
 #navbar {
@@ -140,7 +140,7 @@ h2 {
 
 
 #amandaimg {
-	width: 232px;
+	width: 153px;
 	float: none;
 	margin: auto;
 	display: block;
