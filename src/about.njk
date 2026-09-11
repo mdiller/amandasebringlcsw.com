@@ -1,0 +1,112 @@
+---
+layout: base.njk
+title: About Me
+---
+<h2>About Me</h2>
+<p>
+	My name is Amanda Sebring (she/her) and I am a Licensed Clinical Social Worker
+	and clinical supervisor. I primarily offer individual and family therapy to
+	adolescents and young adults (approximately ages 14-30). I specialize in the
+	treatment of depression, anxiety, and trauma symptoms. Additionally, I have
+	extensive experience and am comfortable working with individuals who
+	experience suicidal ideation or engage in non-suicidal self-injury
+	(self-harm). My goal in therapy is to create a supportive environment in
+	which clients feel respected and understood, where they can work toward
+	self-identified goals and build a life worth living.
+</p>
+
+<h3>Past Experience</h3>
+<p>
+	I have worked in the mental health field for over 13 years, supporting folks
+	across the lifespan.
+</p>
+<p>
+	I spent the early years of my career working with elderly individuals
+	experiencing dementia. I truly enjoyed these years, supporting residents with
+	activities of daily living, facilitating enriching activities, hearing
+	stories about people's lives, and reading residents some beautiful
+	poetry that they wrote in their younger years. I noticed that above all,
+	family visits were the thing that elicited the most joy in residents.
+	Throughout my four years in this role, I supported multiple families through
+	the passing of their loved ones. I think back on this time fondly,
+	recognizing that this is where my passion for working with families took
+	root.
+</p>
+<p>
+	Shortly after earning my bachelor's degree, I returned to my original
+	goal and passion, working with youth and their families in a residential
+	treatment setting. I worked directly with youth to support skill building,
+	crisis management, and safety planning.
+</p>
+<p>
+	After receiving my Master of Social Work degree, I returned to a residential
+	treatment setting, this time as a Child and Family Therapist. For multiple
+	years, I worked closely with adolescents and their families to improve
+	communication in the home, support parents with psychoeducation about their
+	child's mental health challenges, engage in collaborative safety
+	planning, and worked toward one common goal - to support the youth and
+	family with being able to have the tools and resources necessary to safely
+	return back to the community.
+</p>
+
+<hr class="service-divider">
+
+<h2 id="scheduling">Scheduling / Free Consultation</h2>
+<p>
+	I offer a free 15 minute consultation so you can assess whether I am a good
+	fit, and so I can determine whether I am an appropriate fit for your needs.
+</p>
+
+<!--
+	TODO: this form has no submission backend wired up yet - see chat for the
+	options/decision needed (Formspree, Netlify Forms, a mailto fallback, etc.)
+	before this can actually deliver submissions anywhere.
+-->
+<form class="consultation-form">
+	<div>
+		<label for="first-name">First name</label>
+		<input type="text" id="first-name" name="first-name" required>
+	</div>
+	<div>
+		<label for="last-name">Last name</label>
+		<input type="text" id="last-name" name="last-name" required>
+	</div>
+
+	<div>
+		<label>Are you reaching out for therapy for yourself or someone else?</label>
+		<div class="radio-group">
+			<label><input type="radio" name="reaching-out-for" value="myself" checked> Myself</label>
+			<label><input type="radio" name="reaching-out-for" value="someone-else"> Someone else</label>
+		</div>
+	</div>
+
+	<div id="relationship-field" hidden>
+		<label for="relationship">What is your relationship with the individual you are reaching out on behalf of?</label>
+		<input type="text" id="relationship" name="relationship">
+	</div>
+
+	<div>
+		<label for="reason">Please provide some information about your reason for reaching out</label>
+		<textarea id="reason" name="reason" maxlength="1500"></textarea>
+		<div class="form-hint">1500 characters max</div>
+	</div>
+
+	<button type="submit">Submit</button>
+</form>
+
+<script>
+	(function () {
+		var radios = document.querySelectorAll('input[name="reaching-out-for"]');
+		var relationshipField = document.getElementById('relationship-field');
+		radios.forEach(function (radio) {
+			radio.addEventListener('change', function () {
+				relationshipField.hidden = (radio.value !== 'someone-else' || !radio.checked);
+			});
+		});
+
+		document.querySelector('.consultation-form').addEventListener('submit', function (event) {
+			event.preventDefault();
+			alert('Not implemented yet');
+		});
+	})();
+</script>

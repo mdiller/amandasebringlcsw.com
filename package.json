@@ -1,0 +1,13 @@
+{
+	"name": "amandasebringlcsw.com",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Amanda Sebring, LCSW - private practice website",
+	"scripts": {
+		"start": "eleventy --serve",
+		"build": "eleventy"
+	},
+	"devDependencies": {
+		"@11ty/eleventy": "^3.0.0"
+	}
+}

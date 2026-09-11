@@ -27,6 +27,17 @@ html, body {
 	flex-direction: column;
 }
 
+#banner {
+	width: 100%;
+	padding: 8px 0px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	background-color: #e8b84b;
+	color: #333333;
+}
+
 #title {
 	position: relative;
 	padding-top: var(--header-size);
@@ -52,6 +63,11 @@ html, body {
 	font-size: 42px;
 	font-weight: 800;
 	margin: 0px;
+}
+
+#title h1 a {
+	color: inherit;
+	text-decoration: none;
 }
 
 #title img {
@@ -124,15 +140,16 @@ h2 {
 	width: fit-content;
 }
 
-#navbar span {
+#navbar a {
 	color: white;
+	text-decoration: none;
 	line-height: var(--navbar-height);
-	/* font-weight: bold; */
 	margin: 0px 20px;
 	cursor: pointer;
 }
 
-#navbar span:hover {
+#navbar a:hover,
+#navbar a.active {
 	border-bottom: 2px solid white;
 }
 
@@ -144,6 +161,104 @@ h2 {
 	float: none;
 	margin: auto;
 	display: block;
+}
+
+.service-block {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+	margin: 30px 0px;
+}
+
+.service-block.reverse {
+	flex-direction: row-reverse;
+}
+
+.service-text {
+	flex: 1;
+}
+
+.service-text h3 {
+	margin-top: 0px;
+	color: var(--highlight-color);
+}
+
+.service-image {
+	flex: 0 0 220px;
+}
+
+.service-image img {
+	width: 100%;
+	border-radius: 8px;
+	display: block;
+	object-fit: cover;
+}
+
+.service-divider {
+	border: none;
+	height: 2px;
+	margin: 10px auto;
+	width: 80%;
+	background: linear-gradient(to right, transparent, var(--highlight-color), transparent);
+}
+
+.consultation-form {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	max-width: 500px;
+	margin: 20px 0px;
+}
+
+.consultation-form label {
+	font-weight: 700;
+	display: block;
+	margin-bottom: 4px;
+}
+
+.consultation-form input[type="text"],
+.consultation-form textarea {
+	width: 100%;
+	padding: 8px 10px;
+	border: 1px solid #cccccc;
+	border-radius: 6px;
+	font-family: inherit;
+	font-size: 14px;
+	color: var(--text-color);
+}
+
+.consultation-form textarea {
+	min-height: 120px;
+	resize: vertical;
+}
+
+.consultation-form .radio-group label {
+	font-weight: 400;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin-right: 20px;
+}
+
+.consultation-form button {
+	align-self: flex-start;
+	background-color: var(--highlight-color);
+	color: white;
+	border: none;
+	padding: 10px 24px;
+	border-radius: 6px;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.consultation-form button:hover {
+	opacity: 0.9;
+}
+
+.form-hint {
+	font-size: 12px;
+	color: #888888;
+	margin-top: 4px;
 }
 
 h1, h2, #navbar {
@@ -183,5 +298,13 @@ h1, h2, #navbar {
 		float: none;
 		margin: auto;
 		display: block;
+	}
+	.service-block,
+	.service-block.reverse {
+		flex-direction: column;
+	}
+	.service-image {
+		flex: none;
+		width: 60%;
 	}
 }
