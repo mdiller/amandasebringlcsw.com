@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ title }} | Amanda Sebring, LCSW</title>
-	<link rel="stylesheet" href="/style.css">
+	<link rel="stylesheet" href="{{ '/style.css' | url }}">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Lato|Roboto|Source+Sans+Pro" rel="stylesheet">
 	<meta property="og:title" content="Amanda Sebring, LCSW">
 	<meta property="og:image" content="https://amandasebringlcsw.com/images/amanda.jpg">
@@ -18,7 +18,7 @@
 
 	<div id="title">
 		<div>
-			<h1><a href="/">Amanda Sebring, LCSW</a></h1>
+			<h1><a href="{{ '/' | url }}">Amanda Sebring, LCSW</a></h1>
 			<div id="minititle">Mental Health Counselor</div>
 		</div>
 	</div>
@@ -28,9 +28,9 @@
 		<div id="navbarcontainer">
 			<nav id="navbar">
 				<div>
-					<a href="/" class="{{ 'active' if page.url == '/' }}">Services</a>
-					<a href="/about/" class="{{ 'active' if page.url == '/about/' }}">About Me</a>
-					<a href="/pricing/" class="{{ 'active' if page.url == '/pricing/' }}">Pricing</a>
+					<a href="{{ '/' | url }}" class="{{ 'active' if page.url == '/' }}">Services</a>
+					<a href="{{ '/about/' | url }}" class="{{ 'active' if page.url == '/about/' }}">About Me</a>
+					<a href="{{ '/pricing/' | url }}" class="{{ 'active' if page.url == '/pricing/' }}">Pricing</a>
 				</div>
 			</nav>
 		</div>

@@ -42,7 +42,7 @@ html, body {
 	position: relative;
 	padding-top: var(--header-size);
 	padding-bottom: 20px;
-	background: url(/images/skypic.jpg);
+	background: url(images/skypic.jpg);
 	background-size: 100% auto;
 	background-position: center bottom;
 }
