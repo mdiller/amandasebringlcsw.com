@@ -8,6 +8,10 @@
 	--navbar-height: 50px;
 }
 
+@view-transition {
+	navigation: auto;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -36,6 +40,17 @@ html, body {
 	letter-spacing: 0.02em;
 	background-color: #e8b84b;
 	color: #333333;
+	view-transition-name: banner;
+}
+
+#banner a {
+	color: #333333;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#banner a:hover {
+	text-decoration: underline;
 }
 
 #title {
@@ -45,6 +60,7 @@ html, body {
 	background: url(images/skypic.jpg);
 	background-size: 100% auto;
 	background-position: center bottom;
+	view-transition-name: title;
 }
 
 #title > div {
@@ -97,6 +113,13 @@ h2 {
 	flex: 1;
 }
 
+/* Header stays static across page navigations instead of cross-fading with the content */
+::view-transition-group(banner),
+::view-transition-group(title),
+::view-transition-group(navbar) {
+	animation: none;
+}
+
 /* #content > div:first-child {
 	padding-top: 75px;
 }
@@ -133,6 +156,7 @@ h2 {
 	width: 100vw;
 	background-color: var(--highlight-color);
 	height: var(--navbar-height);
+	view-transition-name: navbar;
 }
 
 #navbar > div {
@@ -156,8 +180,8 @@ h2 {
 
 
 
-#amandaimg {
-	width: 153px;
+#amandaimg img {
+	width: 200px;
 	float: none;
 	margin: auto;
 	display: block;
@@ -202,11 +226,39 @@ h2 {
 	background: linear-gradient(to right, transparent, var(--highlight-color), transparent);
 }
 
+.contact-page {
+	max-width: 525px;
+	margin: 0px auto;
+}
+
+.contact-reason {
+	margin: 20px auto 30px;
+	text-align: center;
+}
+
+.contact-reason label {
+	font-weight: 700;
+	display: block;
+	margin-bottom: 4px;
+}
+
+.contact-reason select {
+	width: 100%;
+	padding: 8px 10px;
+	border: 1px solid #cccccc;
+	border-radius: 6px;
+	font-family: inherit;
+	font-size: 14px;
+	color: var(--text-color);
+	background-color: white;
+	text-align: center;
+	text-align-last: center;
+}
+
 .consultation-form {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
-	max-width: 500px;
 	margin: 20px 0px;
 }
 
@@ -306,5 +358,26 @@ h1, h2, #navbar {
 	.service-image {
 		flex: none;
 		width: 60%;
+	}
+}
+
+
+.reveal {
+	opacity: 0;
+	transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal--left  { transform: translateX(-80%); }
+.reveal--right { transform: translateX(80%); }
+
+.reveal.is-visible {
+	opacity: 1;
+	transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
 	}
 }

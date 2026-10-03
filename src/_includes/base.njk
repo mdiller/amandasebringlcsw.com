@@ -14,7 +14,11 @@
 <body>
 <div id="page">
 
-	<div id="banner">Accepting new patients</div>
+	<div id="banner">
+		<a href="{{ '/contact/' | url }}">
+			Accepting new patients
+		</a>
+	</div>
 
 	<div id="title">
 		<div>
@@ -23,17 +27,19 @@
 		</div>
 	</div>
 
-	<div id="content">
+	<div id="navbarcontainer">
+		<nav id="navbar">
+			<div>
+				<a href="{{ '/' | url }}" class="{{ 'active' if page.url == '/' }}">Home</a>
+				<a href="{{ '/services/' | url }}" class="{{ 'active' if page.url == '/services/' }}">Services</a>
+				<a href="{{ '/about/' | url }}" class="{{ 'active' if page.url == '/about/' }}">About Me</a>
+				<a href="{{ '/pricing/' | url }}" class="{{ 'active' if page.url == '/pricing/' }}">Pricing & Insurance</a>
+				<a href="{{ '/contact/' | url }}" class="{{ 'active' if page.url == '/contact/' }}">Contact Me</a>
+			</div>
+		</nav>
+	</div>
 
-		<div id="navbarcontainer">
-			<nav id="navbar">
-				<div>
-					<a href="{{ '/' | url }}" class="{{ 'active' if page.url == '/' }}">Services</a>
-					<a href="{{ '/about/' | url }}" class="{{ 'active' if page.url == '/about/' }}">About Me</a>
-					<a href="{{ '/pricing/' | url }}" class="{{ 'active' if page.url == '/pricing/' }}">Pricing</a>
-				</div>
-			</nav>
-		</div>
+	<div id="content">
 
 		{{ content | safe }}
 
@@ -42,6 +48,19 @@
 	<div id="footer">
 		<a href="https://github.com/mdiller/amandasebringlcsw.com">Copyright {% year %}</a>
 	</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+	entries.forEach((entry) => {
+		if (entry.isIntersecting) {
+			entry.target.classList.add('is-visible');
+			observer.unobserve(entry.target); // animate once
+		}
+	});
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
 
 </div>
 </body>
