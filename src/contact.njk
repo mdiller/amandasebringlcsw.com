@@ -93,11 +93,23 @@ title: Contact Me
 			'licensure-supervision': document.getElementById('licensure-supervision-section'),
 			'scheduling': document.getElementById('scheduling-section')
 		};
-		reasonSelect.addEventListener('change', function () {
+		function updateSections() {
 			Object.keys(sections).forEach(function (key) {
 				sections[key].hidden = (key !== reasonSelect.value);
 			});
-		});
+		}
+		reasonSelect.addEventListener('change', updateSections);
+
+		// Preselect the reason from the URL hash, e.g. /contact/#licensure-supervision
+		function selectFromHash() {
+			var reason = window.location.hash.slice(1);
+			if (sections[reason]) {
+				reasonSelect.value = reason;
+				updateSections();
+			}
+		}
+		selectFromHash();
+		window.addEventListener('hashchange', selectFromHash);
 	})();
 </script>
 
