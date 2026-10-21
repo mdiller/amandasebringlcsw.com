@@ -1,3 +1,6 @@
+---
+permalink: /style.css
+---
 :root {
 	--topbar-color: #333333;
 	--highlight-color: #7d986d;
@@ -58,7 +61,7 @@ html, body {
 	position: relative;
 	padding-top: var(--header-size);
 	padding-bottom: 20px;
-	background: url(images/banner.png);
+	background: url(images/banner.png?v={{ buildId }});
 	background-size: 100% auto;
 	background-position: center bottom;
 	view-transition-name: title;
