@@ -3,7 +3,26 @@ layout: base.njk
 title: Home
 ---
 
-<div class="service-block reverse">
+<div class ="amandahome">
+
+	<section class="callout">
+	<div id="amandaimg">
+		<img src="{{ '/images/amanda.jpg' | url | bust }}" alt="Amanda Sebring">
+		
+		<hr class="service-divider">
+	</div>
+		<div id="linebox"></div>
+		<p>
+			<i>
+				"I firmly believe that people are doing the best they can with the tools, 
+				support, and experiences they have at any given time. My clinical approach 
+				is guided by trauma-informed and socially conscious perspectives that 
+				recognize the impact of relationships, systems, and culture on mental health."
+			</i>
+		</p>
+	</section>
+</div>
+{# <div class="service-block reverse">
 	<div class="service-text reveal--right reveal">
 		<p>
 			<i>
@@ -13,8 +32,8 @@ title: Home
 				recognize the impact of relationships, systems, and culture on mental health."
 			</i>
 		</p>
-	</div>
-	<div class="service-image">
+	 </div> {# TODO: keep position of text/image in non-mobile, but make sure to make the text UNDER the picture in mobile #}
+	{# <div class="service-image"> 
 		<img src="{{ '/images/amanda.jpg' | url | bust }}" alt="">
 	</div>
-</div>
+</div> #}
