@@ -12,7 +12,7 @@ permalink: /style.css
 	--navbar-height: 50px;
 
 	--darksage-color: #516153;
-	--navbar-color: #748b76;
+	--navbar-color: #96a797; /* #748b76; */
 	--background-color: var(--background-cream);
 	--callout-color: var(--background-sage-light);
 	--hr-color: var(--darksage-color);
@@ -26,8 +26,6 @@ permalink: /style.css
 * {
 	box-sizing: border-box;
 }
-
-/* TODO: update all the text used on the site to use "em"-based sizes */
 
 html, body {
 	font-family: Open Sans, Source Sans Pro, Lato, Roboto, Arial, Helvetica, sans-serif;
@@ -48,7 +46,7 @@ html, body {
 	width: 100%;
 	padding: 8px 0px;
 	text-align: center;
-	font-size: 14px;
+	font-size: 0.875rem;
 	font-weight: 700;
 	letter-spacing: 0.02em;
 	background-color: #e8b84b;
@@ -82,7 +80,7 @@ html, body {
 	transform: translate(0, -50%); */
 	/* color: white; */
 	text-align: center;
-	font-size: 18px;
+	font-size: 1.125rem;
 	font-weight: 700;
 	width: 100%;
 
@@ -102,12 +100,12 @@ html, body {
 }
 
 #minititle {
-	color: #999999;
+	color: white;
 }
 
 #title h1 {
 	color: white;
-	font-size: 42px;
+	font-size: 2.625rem;
 	font-weight: 800;
 	margin: 0px;
 }
@@ -152,6 +150,24 @@ h2 {
 	animation: none;
 }
 
+/* animation:none on the group only stops the move/resize; the old/new snapshots still cross-fade by default, which looks like the header flickering */
+::view-transition-old(banner),
+::view-transition-new(banner),
+::view-transition-old(title),
+::view-transition-new(title),
+::view-transition-old(navbar),
+::view-transition-new(navbar) {
+	animation: none;
+	mix-blend-mode: normal;
+}
+
+/* show only the new snapshot so the header swaps instantly instead of both layers sitting half-transparent */
+::view-transition-old(banner),
+::view-transition-old(title),
+::view-transition-old(navbar) {
+	display: none;
+}
+
 /* #content > div:first-child {
 	padding-top: 75px;
 }
@@ -171,9 +187,16 @@ h2 {
 
 
 .officeimg {
+	width: 350px !important;
+}
+
+.about-sectiontop img {
 	width: 300px !important;
 }
 
+.about-sectiontop p {
+	margin:  0px 50px;
+}
 
 #navbarcontainer { 
 	position: relative;
@@ -216,24 +239,49 @@ h2 {
 
 #amandaimg img {
 	--widththing: 250px;
+	--darkgreen: #232a23;
 	position: relative;
-	width: var(--widththing);
 	float: none;
 	margin: auto;
 	display: block;
-	border-radius: calc(var(--widththing) / 2);
 	z-index: 1000;
-	border: 6px solid #232a23;
-	/* TODO: remake the border via a div so we dont have the white lil pixles  */
+	
+	/* width: var(--widththing);
+	border: 3px solid var(--darkgreen);
+	background: var(--darkgreen);
+	border-radius: 50% / 50%; */
+
+	/* border-radius: calc(var(--widththing) / 2); */
+	/* border-radius: 50% / 50%; */
+
+	/* TODO: TRY MAKING CIRCULAR, OR EXPERIMENTING WITH SHORTER */
+
 }
+
+#amandaimg #imgwrapper {
+	--widththing: 250px;
+	--darkgreen: #232a23;
+	border: 3px solid var(--darkgreen);
+	background: var(--darkgreen);
+	width: var(--widththing);
+	height: calc(var(--widththing) * 1.1);
+	border-radius: 50% / 50%;
+	overflow: hidden;
+	margin: auto;
+}
+#amandaimg #imgwrapper img {
+	margin-top: -30px;
+	width: 100%;
+}
+
 
 .amandahome .callout {
 	max-width: 600px;
 	margin: auto;
-	font-size: 24px;
+	font-size: 1.5rem;
 	/* margin-top: -40px; */
 	position: relative;
-	border: 4px solid var(--darksage-color);
+	border: 3px solid var(--darksage-color);
 	text-align: center;
 }
 
@@ -287,6 +335,14 @@ h2 {
 	object-fit: cover;
 }
 
+.service-image .caption {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: grey;
+	font-style: italic;
+}
+
 .service-header {
 	flex: 0 0 220px;
 	width: 200px;
@@ -325,7 +381,7 @@ h2 {
 	border: 1px solid #cccccc;
 	border-radius: 6px;
 	font-family: inherit;
-	font-size: 14px;
+	font-size: 0.875rem;
 	color: var(--text-color);
 	background-color: white;
 	text-align: center;
@@ -352,7 +408,7 @@ h2 {
 	border: 1px solid #cccccc;
 	border-radius: 6px;
 	font-family: inherit;
-	font-size: 14px;
+	font-size: 0.875rem;
 	color: var(--text-color);
 }
 
@@ -376,7 +432,7 @@ h2 {
 	border: none;
 	padding: 10px 24px;
 	border-radius: 6px;
-	font-size: 15px;
+	font-size: 0.9375rem;
 	cursor: pointer;
 }
 
@@ -385,7 +441,7 @@ h2 {
 }
 
 .form-hint {
-	font-size: 12px;
+	font-size: 0.75rem;
 	color: #888888;
 	margin-top: 4px;
 }
@@ -488,7 +544,7 @@ section.callout {
 
 .faq-item summary::after {
 	content: "+";
-	font-size: 22px;
+	font-size: 1.375rem;
 	line-height: 1;
 	color: var(--highlight-color);
 	transition: transform 0.3s ease;
